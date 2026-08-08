@@ -24,7 +24,9 @@ if __name__ == "__main__":
     from data_loader import get_dataset_path
 
     path = get_dataset_path()
-    train_ds = load_dataset(path, split="train")
+
+    train_ds = load_dataset(path, split="train", validation_split=0.2, subset="training")
+    val_ds = load_dataset(path, split="train", validation_split=0.2, subset="validation")
 
     print("Classes trouvées :", train_ds.class_names)
     
